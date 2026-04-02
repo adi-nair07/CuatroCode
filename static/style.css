@@ -1,0 +1,42 @@
+/* Glassmorphism utility classes beyond Tailwind */
+.glass-card {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.4) 0%, rgba(17, 24, 39, 0.8) 100%);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Smooth fade in / out animation classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Base custom selection */
+::selection {
+    background-color: rgba(245, 158, 11, 0.3);
+    color: white;
+}
+
+/* Chrome/Safari input removing arrows */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/* Firefox input removing arrows */
+input[type=number] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}

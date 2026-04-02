@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Golden Alchemist | Market Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-error-container": "#ffdad6", "on-primary": "#3c2f00", "error-container": "#93000a", "primary-fixed": "#ffe088", "outline": "#99907c", "surface-tint": "#e9c349", "secondary-container": "#444956", "on-tertiary-fixed": "#00174b", "on-primary-fixed": "#241a00", "on-tertiary-container": "#254188", "secondary-fixed": "#dee2f3", "tertiary-fixed": "#dbe1ff", "on-primary-fixed-variant": "#574500", "on-secondary-container": "#b4b8c8", "primary-container": "#d4af37", "surface-bright": "#373940", "surface": "#111319", "inverse-primary": "#735c00", "on-tertiary-fixed-variant": "#27438a", "on-error": "#690005", "secondary": "#c2c6d6", "surface-container": "#1e1f26", "outline-variant": "#4d4635", "tertiary": "#bfcdff", "primary": "#f2ca50", "secondary-fixed-dim": "#c2c6d6", "on-secondary-fixed": "#161b27", "primary-fixed-dim": "#e9c349", "on-secondary": "#2b303d", "on-primary-container": "#554300", "background": "#111319", "on-surface-variant": "#d0c5af", "surface-container-high": "#282a30", "on-secondary-fixed-variant": "#424754", "surface-variant": "#33343b", "surface-dim": "#111319", "on-tertiary": "#082b72", "inverse-on-surface": "#2e3037", "surface-container-highest": "#33343b", "on-surface": "#e2e2eb", "inverse-surface": "#e2e2eb", "surface-container-low": "#191b22", "surface-container-lowest": "#0c0e14", "tertiary-container": "#97b0ff", "tertiary-fixed-dim": "#b4c5ff", "on-background": "#e2e2eb", "error": "#ffb4ab" }, fontFamily: { "headline": ["Noto Serif", "serif"], "body": ["Manrope", "sans-serif"], "label": ["Manrope", "sans-serif"] }, borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"}, } } }
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.glass-card { background: rgba(30, 31, 38, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.gold-gradient { background: linear-gradient(135deg, #f2ca50 0%, #d4af37 100%); }
+body { min-height: max(884px, 100dvh); }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container/30">
+<!-- Top Navigation Shell -->
+<header class="bg-[#111319]/70 backdrop-blur-md sticky top-0 z-50 flex justify-between items-center w-full px-8 py-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant/20">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsUit2goQlSjeJ_TrCFopIdA8bz6Xc5yO18alX9nTHJVRSp-sD1PV2eO4hM8ZWXRFDcz5gBAmo_7r2esk6lqYNXZIHV5rMPOgJpDPYQRsw3noAo1cjGqd9RrbhDOttG39mZ4pdWcKG7GtHq6Plp_0CrhHUXdssnTX20iQWmDk4jzdd__JjayILc22DcMOMZb6GLdp08kCYdMHiYcDrUXQgSeUz4Rls6RJJdqZ7tSfkn_A3BTJubZHUxyH8nXEF13b3tApcuSAp51g"/>
+</div>
+<span class="text-xl font-serif font-bold tracking-widest text-[#d4af37]">GOLDEN ALCHEMIST</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-[#e2e2eb]/60 hover:text-[#f2ca50] transition-colors duration-300">search</button>
+<button class="material-symbols-outlined text-[#e2e2eb]/60 hover:text-[#f2ca50] transition-colors duration-300">menu</button>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-8 py-12 pb-32 space-y-12">
+<!-- Hero Price Section -->
+<section class="flex flex-col md:flex-row justify-between items-end gap-8">
+<div class="space-y-2">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#f2ca50]"></span>
+<span class="text-xs uppercase tracking-[0.2em] font-label font-bold text-primary">Live Spot Price</span>
+</div>
+<h1 class="text-7xl md:text-8xl font-headline font-bold text-on-surface leading-none">
+                    2,348.12<span class="text-3xl text-outline ml-2">USD</span>
+</h1>
+<div class="flex items-center gap-4 pt-2">
+<div class="flex items-center text-primary-fixed font-bold">
+<span class="material-symbols-outlined mr-1">arrow_drop_up</span>
+<span class="text-xl">+12.45 (0.54%)</span>
+</div>
+<span class="text-outline text-sm font-label uppercase tracking-wider">Last updated 2m ago</span>
+</div>
+</div>
+<!-- Quick Chart Visual (Mini) -->
+<div class="w-full md:w-64 h-24 relative overflow-hidden rounded-lg bg-surface-container-low">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<svg class="w-full h-full stroke-primary fill-none stroke-[1.5]" viewbox="0 0 100 40">
+<path d="M0 35 Q 10 32, 20 30 T 40 25 T 60 28 T 80 15 T 100 5"></path>
+</svg>
+</div>
+<div class="absolute bottom-2 right-4 flex items-baseline gap-1">
+<span class="text-[10px] text-outline uppercase font-label font-bold">24h Range</span>
+</div>
+</div>
+</section>
+<!-- Bento Grid Insights -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- AI Forecast Card -->
+<div class="md:col-span-2 glass-card rounded-xl p-8 border border-outline-variant/10 flex flex-col justify-between min-h-[320px]">
+<div>
+<div class="flex justify-between items-start mb-8">
+<h3 class="text-2xl font-headline font-bold text-on-surface">Quick AI Forecast</h3>
+<span class="px-3 py-1 bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full">High Confidence</span>
+</div>
+<p class="text-3xl font-body text-on-surface/90 leading-relaxed max-w-xl">
+                        Market momentum suggests a <span class="text-primary font-bold italic">bullish breakout</span>. Likely to rise <span class="text-primary">+0.5%</span> in the next 24 hours.
+                    </p>
+</div>
+<div class="flex gap-4 mt-8">
+<a href="/analysis" class="gold-gradient text-on-primary px-8 py-3 rounded-lg font-bold font-label uppercase text-sm tracking-widest shadow-lg shadow-primary/10 hover:brightness-110 transition-all inline-block line-height-none">Details</a>
+<button class="border border-outline-variant/30 text-on-surface px-8 py-3 rounded-lg font-bold font-label uppercase text-sm tracking-widest hover:bg-surface-container transition-all">Historical Accuracy</button>
+</div>
+</div>
+<!-- Market Sentiment Gauge -->
+<div class="glass-card rounded-xl p-8 border border-outline-variant/10 flex flex-col items-center justify-center text-center space-y-6">
+<h3 class="text-sm font-label font-bold uppercase tracking-[0.15em] text-outline self-start">Market Sentiment</h3>
+<div class="relative w-48 h-48 flex items-center justify-center">
+<!-- Gauge Mockup -->
+<svg class="w-full h-full -rotate-90 transform" viewbox="0 0 100 100">
+<circle class="text-surface-container-high" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-dasharray="283" stroke-dashoffset="141.5" stroke-width="8"></circle>
+<circle class="text-primary" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-dasharray="283" stroke-dashoffset="190" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-headline font-bold text-primary">78%</span>
+<span class="text-[10px] uppercase font-bold tracking-widest text-outline">Bullish</span>
+</div>
+</div>
+<p class="text-sm text-on-surface/60 font-medium">Majority of retail and institutional traders are currently longing the asset.</p>
+</div>
+</div>
+<!-- Asymmetric Detail Section -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6 pt-6">
+<div class="md:col-span-1 space-y-4">
+<h4 class="text-xs font-label font-bold uppercase tracking-[0.2em] text-outline">Key Indicators</h4>
+<div class="space-y-3">
+<div class="flex justify-between items-center py-3 border-b border-outline-variant/10">
+<span class="text-sm text-on-surface/70">RSI (14)</span>
+<span class="text-sm font-bold text-primary">62.5</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-outline-variant/10">
+<span class="text-sm text-on-surface/70">MACD</span>
+<span class="text-sm font-bold text-primary">Positive</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-outline-variant/10">
+<span class="text-sm text-on-surface/70">Vol (24h)</span>
+<span class="text-sm font-bold text-on-surface">14.2B</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-3">
+<div class="glass-card rounded-xl overflow-hidden border border-outline-variant/10 aspect-[21/9] relative">
+<img alt="Market Chart Backdrop" class="w-full h-full object-cover opacity-30 grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmJq7g1Ox2uu_0Ljm3SwCLvcbYoN0c9HMK-sdZE8mVKKXjA9TOXqnaPLwpnkS_H6nuD84XmTz_LjX9juHx1pjSpjtZNra0RcBnNLTzH_lcXGfFUcPavBSaWYrCp4jgxGex5YyNUCxvdQpSw4IlGsly6YbOk3xHzQwE4-jeBDwYPFr7akQG3KdMDQ-JNcAzBmvYXvBSnV4PCyCuc7bTtpTHK3s9Qe6XBPMZertatk68de4jbB6_bJDzK6VafbOTh2jo7yfiVkzSmL0"/>
+<div class="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-surface to-transparent">
+<h3 class="text-2xl font-headline font-bold mb-2">Technical Analysis: The Gold-Bond Correlation</h3>
+<p class="text-on-surface/70 text-sm max-w-lg">Examine how the latest treasury yields are influencing gold's trajectory. New report by Alchemy Research.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-[#111319]/80 backdrop-blur-xl z-50 shadow-[0_-4px_24px_rgba(0,0,0,0.5)] border-t border-[#e2e2eb]/10">
+<a class="flex flex-col items-center justify-center text-[#f2ca50] bg-[#1e1f26] rounded-xl py-2 px-4 scale-90 transition-transform" href="/">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-semibold tracking-tighter mt-1 font-label">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e2e2eb]/40 py-2 px-4 hover:bg-[#191b22] hover:text-[#f2ca50] transition-colors duration-300" href="/analysis">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="text-[10px] font-semibold tracking-tighter mt-1 font-label">Analysis</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e2e2eb]/40 py-2 px-4 hover:bg-[#191b22] hover:text-[#f2ca50] transition-colors duration-300" href="/portfolio">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-[10px] font-semibold tracking-tighter mt-1 font-label">Portfolio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e2e2eb]/40 py-2 px-4 hover:bg-[#191b22] hover:text-[#f2ca50] transition-colors duration-300" href="/alerts">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="text-[10px] font-semibold tracking-tighter mt-1 font-label">Alerts</span>
+</a>
+</nav>
+<!-- Floating Action Pulse -->
+<div class="fixed bottom-28 right-8 z-40">
+<button class="w-14 h-14 rounded-full gold-gradient shadow-[0_8px_32px_rgba(242,202,80,0.3)] flex items-center justify-center text-on-primary transition-transform active:scale-95">
+<span class="material-symbols-outlined font-bold">add</span>
+</button>
+</div>
+</body></html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Alerts | Golden Alchemist</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-error-container": "#ffdad6", "on-primary": "#3c2f00", "error-container": "#93000a", "primary-fixed": "#ffe088", "outline": "#99907c", "surface-tint": "#e9c349", "secondary-container": "#444956", "on-tertiary-fixed": "#00174b", "on-primary-fixed": "#241a00", "on-tertiary-container": "#254188", "secondary-fixed": "#dee2f3", "tertiary-fixed": "#dbe1ff", "on-primary-fixed-variant": "#574500", "on-secondary-container": "#b4b8c8", "primary-container": "#d4af37", "surface-bright": "#373940", "surface": "#111319", "inverse-primary": "#735c00", "on-tertiary-fixed-variant": "#27438a", "on-error": "#690005", "secondary": "#c2c6d6", "surface-container": "#1e1f26", "outline-variant": "#4d4635", "tertiary": "#bfcdff", "primary": "#f2ca50", "secondary-fixed-dim": "#c2c6d6", "on-secondary-fixed": "#161b27", "primary-fixed-dim": "#e9c349", "on-secondary": "#2b303d", "on-primary-container": "#554300", "background": "#111319", "on-surface-variant": "#d0c5af", "surface-container-high": "#282a30", "on-secondary-fixed-variant": "#424754", "surface-variant": "#33343b", "surface-dim": "#111319", "on-tertiary": "#082b72", "inverse-on-surface": "#2e3037", "surface-container-highest": "#33343b", "on-surface": "#e2e2eb", "inverse-surface": "#e2e2eb", "surface-container-low": "#191b22", "surface-container-lowest": "#0c0e14", "tertiary-container": "#97b0ff", "tertiary-fixed-dim": "#b4c5ff", "on-background": "#e2e2eb", "error": "#ffb4ab" }, fontFamily: { "headline": ["Noto Serif"], "body": ["Manrope"], "label": ["Manrope"] }, borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"}, } } }
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+body { min-height: max(884px, 100dvh); }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body pb-32">
+<header class="bg-[#111319]/70 backdrop-blur-md sticky top-0 z-50 flex justify-between items-center w-full px-8 py-4">
+<div class="flex items-center gap-4">
+<h1 class="text-xl font-bold tracking-widest text-[#d4af37] font-headline">GOLDEN ALCHEMIST</h1>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-8 mt-12">
+<section>
+<h2 class="font-headline text-2xl text-on-surface mb-6">Create New Alert</h2>
+<div class="bg-surface-container-low p-8 rounded-lg">
+<div class="flex flex-col gap-2 mb-6">
+<label class="text-[10px] font-bold uppercase tracking-[0.1em] text-outline">Target Price (USD/oz)</label>
+<input class="w-full bg-surface-container border-none p-4 font-headline text-xl" placeholder="2,500.00" type="text"/>
+</div>
+<button class="w-full py-4 bg-gradient-to-r from-primary-container to-primary text-on-primary font-bold uppercase tracking-widest text-sm rounded">Set Market Alert</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-[#111319]/80 backdrop-blur-xl z-50 border-t border-[#e2e2eb]/10 shadow-[0_-4px_24px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-[#e2e2eb]/40 py-2 px-4 hover:bg-[#191b22] hover:text-[#f2ca50] transition-all" href="/">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-semibold tracking-tighter font-label">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e2e2eb]/40 py-2 px-4 hover:bg-[#191b22] hover:text-[#f2ca50] transition-all" href="/analysis">
+<span class="material-symbols-outlined mb-1" data-icon="monitoring">monitoring</span>
+<span class="text-[10px] font-semibold tracking-tighter font-label">Analysis</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e2e2eb]/40 py-2 px-4 hover:bg-[#191b22] hover:text-[#f2ca50] transition-all" href="/portfolio">
+<span class="material-symbols-outlined mb-1" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-[10px] font-semibold tracking-tighter font-label">Portfolio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#f2ca50] bg-[#1e1f26] rounded-xl py-2 px-4 scale-90 transition-transform" href="/alerts">
+<span class="material-symbols-outlined mb-1" data-icon="notifications" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="text-[10px] font-semibold tracking-tighter font-label">Alerts</span>
+</a>
+</nav>
+</body></html>
